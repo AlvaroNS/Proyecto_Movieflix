@@ -60,7 +60,8 @@ public class Propiedades {
 
         try {
 
-            con = DriverManager.getConnection(url, user, passwd);
+            con = DriverManager.getConnection("jdbc:mysql://192.168.101.1:3306/videostreaming", "grupo1", "grupo1");
+            System.out.println("conexion a base de datos correcta");
             pst = con.prepareStatement("SELECT * FROM videostreaming");
             rs = pst.executeQuery();
 

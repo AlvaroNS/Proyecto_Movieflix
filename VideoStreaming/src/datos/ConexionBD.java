@@ -7,14 +7,15 @@ public class ConexionBD {
     Connection connection = null;
     String BD = "videostreaming";
     String driverClassName = "com.mysql.jdbc.Driver";
-    String driverUrl = "jdbc:mysql:///" + BD;
-    String user = "root";
-    String password = "root";
+    String driverUrl = "jdbc:mysql://192.168.101.101:3306/videostreaming?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+    String user = "grupo1";
+    String password = "grupo1";
 
     public void ConexionDB() {
         try {
             Class.forName(driverClassName);
             connection = DriverManager.getConnection(driverUrl, user, password);
+            System.out.println("conexion correcta");
         } catch (ClassNotFoundException e) {
             System.out.println("No se encuentra el driver");
         } catch (SQLException E) {
