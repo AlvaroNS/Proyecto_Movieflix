@@ -15,6 +15,7 @@ public class ConexionBD {
         try {
             Class.forName(driverClassName);
             connection = DriverManager.getConnection(driverUrl, user, password);
+
         } catch (ClassNotFoundException e) {
             System.out.println("No se encuentra el driver");
         } catch (SQLException E) {
@@ -23,7 +24,7 @@ public class ConexionBD {
             System.out.println("Codigo del Error: " + E.getErrorCode());
         } catch (Exception E) {
             System.out.println("Otro problema: " + E);
-        }
+        } 
     }
 
     public Connection getConnection() {
