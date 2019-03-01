@@ -11,6 +11,10 @@ public class S_Cliente {
 	public void add(Cliente c){
 		col.Alta(c);
 	}
+	
+	public void delete(Cliente c) {
+		col.Baja(c);
+	}
 
 
 }
