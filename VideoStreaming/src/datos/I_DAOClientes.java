@@ -5,6 +5,6 @@ import modelo.Cliente;
 public interface I_DAOClientes {
 	
 	public void Alta(Cliente c);
-	public void Baja (Cliente c);
+	public void Baja (int id);
 	
 }

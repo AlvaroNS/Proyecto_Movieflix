@@ -12,8 +12,8 @@ public class S_Cliente {
 		col.Alta(c);
 	}
 	
-	public void delete(Cliente c) {
-		col.Baja(c);
+	public void delete(int id) {
+		col.Baja(id);
 	}
 
 
