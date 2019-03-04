@@ -1,13 +1,29 @@
 package control;
 
 import gui.MenuPelicula;
+<<<<<<< HEAD:VideoStreaming/src/control/ModeloPelicula.java
+import modelo.Cliente;
 import modelo.Pelicula;
+import servicios.I_S_Cliente;
+import servicios.I_S_Pelicula;
+import servicios.S_Cliente;
+import servicios.S_Pelicula;
+//import modelo.Pelicula;
+=======
+import modelo.Pelicula;
+>>>>>>> b13a4f3815ac785c2ba7d5e77dc872c3cbcefa4e:VideoStreaming_FINAL/src/control/ModeloPelicula.java
 import utilidades.*;
 import servicios.S_Pelicula;
 
 public class ModeloPelicula {
 	
 	 Pelicula p = new Pelicula();
+<<<<<<< HEAD:VideoStreaming/src/control/ModeloPelicula.java
+		
+		
+
+=======
+>>>>>>> b13a4f3815ac785c2ba7d5e77dc872c3cbcefa4e:VideoStreaming_FINAL/src/control/ModeloPelicula.java
 
 	    public void abrirVideoStreamingPelicula() {
 	        boolean seguir = true;
@@ -40,8 +56,14 @@ public class ModeloPelicula {
 
 	                case 3:
 	                	//MODIFICAR PELICULA
+<<<<<<< HEAD:VideoStreaming/src/control/ModeloPelicula.java
+	                	System.out.println("Has seleccionado: Modificar Peliculas");
+	                    S_Pelicula.modificarPelicula(p);
+	                    break;
+=======
 	                	System.out.println("Has seleccionado: Modificar Pelicula");
 	                	break;
+>>>>>>> b13a4f3815ac785c2ba7d5e77dc872c3cbcefa4e:VideoStreaming_FINAL/src/control/ModeloPelicula.java
 
 	                case 4:
 	                    //MOSTRAR PELICULA
@@ -81,6 +103,35 @@ public class ModeloPelicula {
 	        String sino = LecturaDatos.leerString("¿Está seguro?(S/N)");
 	        return (sino.toUpperCase().charAt(0) != 'S');
 	    }
-}
+	  
+	    public void pruebaModificarPelicula() {
+	    	Pelicula p1 = new Pelicula();
+			I_S_Pelicula pr = new S_Pelicula();
+			try {
+			pr.modificarPelicula(p1);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+	    }
+	    
+	    public void pruebaModificarCliente() {
+	    	
+	    		// TODO Auto-generated method stub
+	    		
+	    		/** modificar cliente testing/
+	    		 */
+	    		Cliente d1 = new Cliente();
+	    		I_S_Cliente s1 = new S_Cliente(); 
+	    		try {
+	    			s1.modificarCliente(d1);
+	    		} catch (Exception e) {
+	    			// TODO Auto-generated catch block
+	    			e.printStackTrace();
+	    }
+	    	}
+	    }
+	    	
+
 
 

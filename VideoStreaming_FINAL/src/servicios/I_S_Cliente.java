@@ -6,13 +6,10 @@ import modelo.Cliente;
 
 public interface I_S_Cliente {
 
-	DAOCliente dc = new DAOCliente();
+	public void altaCliente(Cliente c);
+	public void bajaCliente(Cliente c);
+	public void modificarCliente(Cliente c) throws Exception;
 	
-	static void altaCliente(Cliente c) {
-		dc.altaCliente(c);
-	}
-	static void bajaCliente(int id) {
-		dc.bajaCliente(id);
-	}
+	
 
 }

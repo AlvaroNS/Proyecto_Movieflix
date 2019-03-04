@@ -6,17 +6,8 @@ import modelo.Pelicula;
 
 public interface I_S_Pelicula {
 
-	DAOPelicula dc = new DAOPelicula();
-	
-	static void altaPelicula(Pelicula p) {
-		dc.altaPelicula(p);
-	}
-	
-	static void bajaPelicula(int idP) {
-		dc.bajaPelicula(idP);
-	}
-
-	static void mostrarPelicula (int idP) {
-		dc.mostrarPelicula(idP);
-	}
+	public void altaPelicula(Pelicula p);
+	public void bajaPelicula(Pelicula p);
+	public void modificarPelicula(Pelicula p);
+	public void mostrarPelicula(Pelicula p);
 }

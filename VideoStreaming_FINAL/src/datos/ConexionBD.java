@@ -11,8 +11,14 @@ public class ConexionBD {
     //String driverUrl = "jdbc:mysql://localhost:3306/videostreaming?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     String user = "grupo1";
     String password = "grupo1";
+<<<<<<< HEAD:VideoStreaming/src/datos/ConexionBD.java
+    
+    public ConexionBD() {
+    	System.out.println("-- entro al constructor de conexionDB");
+=======
 
     public void ConexionDB() {
+>>>>>>> b13a4f3815ac785c2ba7d5e77dc872c3cbcefa4e:VideoStreaming_FINAL/src/datos/ConexionBD.java
         try {
             //Class.forName(driverClassName);;            
             connection = DriverManager.getConnection(driverUrl, user, password);

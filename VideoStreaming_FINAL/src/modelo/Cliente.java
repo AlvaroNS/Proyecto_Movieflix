@@ -2,6 +2,10 @@ package modelo;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+<<<<<<< HEAD:VideoStreaming/src/modelo/Cliente.java
+import java.util.Date;
+=======
+>>>>>>> b13a4f3815ac785c2ba7d5e77dc872c3cbcefa4e:VideoStreaming_FINAL/src/modelo/Cliente.java
 
 public class Cliente {
 	
@@ -37,6 +41,15 @@ public class Cliente {
 		this.nombreCliente = nombreCliente;
 	}
 
+<<<<<<< HEAD:VideoStreaming/src/modelo/Cliente.java
+	public LocalDate getFechaNacimiento() {
+		return fechaNacimiento;
+	}
+
+	public void setFechaNacimiento(LocalDate fechaNacimiento) {
+		this.fechaNacimiento = fechaNacimiento;
+	}
+=======
 	/*public LocalDate fecha_nacimiento() {
         System.out.println("Introduzca Fecha de nacimiento: ");
         int dia = LecturaDatos.leerInt("Introduzca dia: ");
@@ -53,6 +66,7 @@ public class Cliente {
     public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
+>>>>>>> b13a4f3815ac785c2ba7d5e77dc872c3cbcefa4e:VideoStreaming_FINAL/src/modelo/Cliente.java
 
 	public String getCiudad() {
 		return ciudad;

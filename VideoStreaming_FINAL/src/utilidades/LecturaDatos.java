@@ -52,6 +52,10 @@ public class LecturaDatos {
         //Llama al metodo de arriba
         return leerN();
     }    
+
+ 
+     
+
     
     //Metodo estatico    
     @SuppressWarnings("resource")
@@ -64,6 +68,6 @@ public class LecturaDatos {
         //Llama al metodo de arriba
         return leerDouble();
     }
+}
         
 
-}

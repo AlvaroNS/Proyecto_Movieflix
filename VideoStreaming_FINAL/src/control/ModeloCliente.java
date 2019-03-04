@@ -3,11 +3,13 @@ package control;
 import gui.MenuCliente;
 import modelo.Cliente;
 import utilidades.*;
+import servicios.I_S_Cliente;
 import servicios.S_Cliente;
 
 public class ModeloCliente {
 	
-	 Cliente c = new Cliente();
+	 private I_S_Cliente services = new S_Cliente();
+	 private Cliente c = new Cliente();
 	 
 	    public void abrirVideoStreamingCliente() {
 	        boolean seguir = true;
@@ -27,21 +29,25 @@ public class ModeloCliente {
 	                case 1:
 	                    //ALTA DE UN CLIENTE
 	                	System.out.println("Has seleccionado: Crear Cliente");
-	                    S_Cliente.altaCliente(c);
+	                	services.altaCliente(c);
 	                    break;
 
 	                case 2:
 	                    //ELIMINAR UN CLIENTE
 	                	System.out.println("Has seleccionado: Dar de baja cliente");
+	                	services.bajaCliente(c);
+	                    
+
 	                	System.out.println("Introduce el id del cliente a dar de baja");
 	                	int idC = LecturaDatos.leerInt();
-	                    S_Cliente.bajaCliente(idC);
+
+	    
 	                    break;
 
 	                case 3:
 	                	//MODIFICAR CLIENTE
 	                	System.out.println("Has seleccionado: Modificar clientes");
-	                   // services.ListarProductos();
+	                   services.modificarCliente(c);
 	                    break;
 
 	                case 4:
