@@ -1,3 +1,0 @@
-db.url=jdbc:mysql://185.15.78.113:3306/videostreaming
-db.user=root
-db.passwd=root
