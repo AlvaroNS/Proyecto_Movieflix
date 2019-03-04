@@ -24,16 +24,16 @@ public class ModeloPelicula {
 		}
 	};*/
 
-	    public void abrirVideoStreaming() {
+	    public void abrirVideoStreamingPelicula() {
 	        boolean seguir = true;
 	        do {
 	            MenuPelicula.mostrarMenu();
-	            seguir = this.seleccionOpciones();
+	            seguir = this.seleccionOpcionesPelicula();
 	        } while (seguir);
 	        System.out.println("   --- Fin de la sesion ---");
 	    }
 
-	    public boolean seleccionOpciones() {
+	    public boolean seleccionOpcionesPelicula() {
 
 	        boolean continuar = true;
 
@@ -92,7 +92,7 @@ public class ModeloPelicula {
 	    }
 
 	    private boolean salir() throws Exception {
-	        String sino = LecturaDatos.leerString("   ¿Está seguro?(S/N)");
+	        String sino = LecturaDatos.leerString("¿Está seguro?(S/N)");
 	        return (sino.toUpperCase().charAt(0) != 'S');
 	    }
 }
