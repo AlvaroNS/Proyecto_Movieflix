@@ -4,7 +4,7 @@ import modelo.Cliente;
 
 public interface S_ClienteImpl {
 
-	public void Alta(Cliente c);
-	public void Baja(Cliente c);
-	
+	public void altaCliente(Cliente c);
+	public void bajaCliente(Cliente c);
+	public void modificarCliente(Cliente c) throws Exception;
 }

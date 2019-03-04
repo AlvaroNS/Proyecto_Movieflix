@@ -16,5 +16,7 @@ public class S_Cliente {
 		col.bajaCliente(id);
 	}
 
-
+	public void modificarCliente(Cliente c) {
+		col.modificarCliente(c);
+	}
 }

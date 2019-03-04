@@ -6,5 +6,5 @@ public interface I_DAOClientes {
 	
 	public void altaCliente(Cliente c);
 	public void bajaCliente (int id);
-	
+	public void modificarCliente(Cliente c);
 }

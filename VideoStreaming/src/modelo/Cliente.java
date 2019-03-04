@@ -1,19 +1,20 @@
 package modelo;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Cliente {
 	
 	private int idCliente;
 	private String nombreCliente;
-	private Date fechaNacimiento;
-	private int ciudad;
-	private TipoAcceso tipoAcceso;
+	private LocalDate fechaNacimiento;
+	private String ciudad;
+	private String tipoAcceso;
 	
 	public Cliente() {}
 	
-	public Cliente (int idCliente, String nombreCliente, Date fechaNacimiento, int ciudad, TipoAcceso tipoAcceso) {
+	public Cliente (int idCliente, String nombreCliente, LocalDate fechaNacimiento, String ciudad, String tipoAcceso) {
 		this.idCliente = idCliente;
 		this.nombreCliente = nombreCliente;
 		this.fechaNacimiento = fechaNacimiento;
@@ -37,27 +38,27 @@ public class Cliente {
 		this.nombreCliente = nombreCliente;
 	}
 
-	public Date getFechaNacimiento() {
+	public LocalDate getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(Date fechaNacimiento) {
+	public void setFechaNacimiento(LocalDate fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public int getCiudad() {
+	public String getCiudad() {
 		return ciudad;
 	}
 
-	public void setCiudad(int ciudad) {
+	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
 	}
 
-	public TipoAcceso getTipoAcceso() {
+	public String getTipoAcceso() {
 		return tipoAcceso;
 	}
 
-	public void setTipoAcceso(TipoAcceso tipoAcceso) {
+	public void setTipoAcceso(String tipoAcceso) {
 		this.tipoAcceso = tipoAcceso;
 	}
 

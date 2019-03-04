@@ -52,5 +52,6 @@ public class LecturaDatos {
         //Llama al metodo de arriba
         return leerN();
     }    
-
+ 
+        public static Date leerFecha() {
 }

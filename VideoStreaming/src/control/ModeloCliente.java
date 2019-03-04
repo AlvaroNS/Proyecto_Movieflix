@@ -42,19 +42,19 @@ public class ModeloCliente {
 	                case 1:
 	                    //ALTA DE UN CLIENTE
 	                	System.out.println("Has seleccionado: Crear Cliente");
-	                    services.Alta(c);
+	                    services.altaCliente(c);
 	                    break;
 
 	                case 2:
 	                    //ELIMINAR UN CLIENTE
 	                	System.out.println("Has seleccionado: Dar de baja cliente");
-	                    services.Baja(c);
+	                    services.bajaCliente(c);
 	                    break;
 
 	                case 3:
 	                	//MODIFICAR CLIENTE
 	                	System.out.println("Has seleccionado: Modificar clientes");
-	                   // services.ListarProductos();
+	                   services.modificarCliente(c);
 	                    break;
 
 	                case 4:
