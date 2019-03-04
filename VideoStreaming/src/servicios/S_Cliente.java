@@ -1,20 +1,22 @@
 package servicios;
 
-import datos.DAOClientes;
-import datos.I_DAOClientes;
+import datos.DAOCliente;
+import datos.I_DAOCliente;
 import modelo.Cliente;
 
-public class S_Cliente {
+
+public class S_Cliente implements Impl_S_Cliente{
 	
-	private I_DAOClientes col = new DAOClientes();
-	
-	public void addCliente(Cliente c){
+	private I_DAOCliente col = new DAOCliente();
+
+	public void altaCliente(Cliente c) {
+		// TODO Auto-generated method stub
 		col.altaCliente(c);
 	}
-	
-	public void deleteCliente(int id) {
+
+	public void bajaCliente(int id) {
+		// TODO Auto-generated method stub
 		col.bajaCliente(id);
 	}
-
 
 }

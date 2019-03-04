@@ -2,7 +2,7 @@ package datos;
 
 import modelo.Cliente;
 
-public interface I_DAOClientes {
+public interface I_DAOCliente {
 	
 	public void altaCliente(Cliente c);
 	public void bajaCliente (int id);

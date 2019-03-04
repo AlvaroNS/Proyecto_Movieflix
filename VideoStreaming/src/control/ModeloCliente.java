@@ -3,27 +3,12 @@ package control;
 import gui.MenuCliente;
 import modelo.Cliente;
 import utilidades.*;
-import servicios.S_ClienteImpl;
+import servicios.Impl_S_Cliente;
 
 public class ModeloCliente {
 	
 	 Cliente c = new Cliente();
 	 
-	 private S_ClienteImpl services = new S_ClienteImpl() {
-		
-		@Override
-		public void Baja(Cliente c) {
-			// TODO Auto-generated method stub
-			
-		}
-		
-		@Override
-		public void Alta(Cliente c) {
-			// TODO Auto-generated method stub
-			
-		}
-	};
-
 	    public void abrirVideoStreamingCliente() {
 	        boolean seguir = true;
 	        do {
@@ -42,13 +27,15 @@ public class ModeloCliente {
 	                case 1:
 	                    //ALTA DE UN CLIENTE
 	                	System.out.println("Has seleccionado: Crear Cliente");
-	                    services.Alta(c);
+	                    Impl_S_Cliente.altaCliente(c);
 	                    break;
 
 	                case 2:
 	                    //ELIMINAR UN CLIENTE
 	                	System.out.println("Has seleccionado: Dar de baja cliente");
-	                    services.Baja(c);
+	                	System.out.println("Introduce el id del cliente a dar de baja");
+	                	int idC = LecturaDatos.leerInt();
+	                    Impl_S_Cliente.bajaCliente(idC);
 	                    break;
 
 	                case 3:

@@ -52,5 +52,18 @@ public class LecturaDatos {
         //Llama al metodo de arriba
         return leerN();
     }    
+    
+    //Metodo estatico    
+    @SuppressWarnings("resource")
+	public static double leerDouble() {
+        return new Scanner(System.in).nextDouble();
+    }
+    
+        public static double leerDouble(String msg) {
+        System.out.println(msg);
+        //Llama al metodo de arriba
+        return leerDouble();
+    }
+        
 
 }
