@@ -3,6 +3,7 @@ package datos;
 import modelo.Cliente;
 import utilidades.LecturaDatos;
 
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
@@ -21,45 +22,40 @@ public class DAOCliente implements I_DAOCliente {
 	
 	 public void altaCliente (Cliente c) {
         Statement st = null;
-        
-     /*   System.out.print("\n Ingrese un código del cliente: \n");
-        int  codigo = LecturaDatos.leerInt();
-        System.out.print("Nombre: ");
-        String nombre = LecturaDatos.leerString();
-        System.out.print("Precio: ");
-        precio = LecturaDatos.
-        System.out.print("Stock: ");
-        stock = entrada.nextInt();
-        p = busqueda(codigo, productos);
-
-        if (p == null) {
-            productos.addElement(new Producto(codigo, nombre, precio, stock));
-
-            **String sql = "INSERT INTO productos (ID, Nombre, Precio, Stock) VALUES(?,?,?,?)";
-
-            PreparedStatement pst;
-            pst = cn.prepareStatement(sql);
-            pst.setInt(1, codigo);
-            pst.setString(2, nombre);
-            pst.setDouble(3, precio);
-            pst.setInt(4, stock);
-            pst.execute(sql);**
-
-            System.out.print("Producto agregado\n");
-        } else {
-            System.out.print("ya existe este producto");
-        }
-        */
         try {
             ConexionBD con = new ConexionBD();
             con.ConexionDB();
             st = con.getConnection().createStatement();
-            String q = "INSERT INTO cliente"
-            		+ "(" + c.getIdCliente() + "," + c.getNombreCliente() + "," + c.getFechaNacimiento() + "," + c.getCiudad() + "," + c.getTipoAcceso() + ")"
-            				+ " VALUES (?,?,?,?,?)";
-            int i = st.executeUpdate(q);
-			System.out.println(q + i);
-            con.getConnection().close();
+            System.out.print("\n Ingrese un código del cliente: \n");
+            int  codigo = LecturaDatos.leerInt();
+            System.out.print("Nombre: ");
+            String nombre = LecturaDatos.leerString();
+            System.out.print("Fecha: ");
+            String fecha = LecturaDatos.leerString();
+            System.out.print("Ciudad: ");
+            String ciudad = LecturaDatos.leerString();
+            System.out.print("Tipo de Acceso: ");
+            String TipoAcceso = LecturaDatos.leerString();
+            
+            
+            if (c == null) {
+                String sql = "INSERT INTO productos VALUES (codigo, nombre, fecha, ciudad, TipoAcceso)";
+
+                PreparedStatement pst = null;
+                pst.setInt(1, codigo);
+                pst.setString(2, nombre);
+                pst.setString(3, fecha);
+                pst.setString(4, ciudad);
+                pst.setString(5, TipoAcceso);
+                pst.execute(sql);
+                
+                int i = st.executeUpdate(sql);
+    			System.out.println(sql + i);
+                con.getConnection().close();
+                System.out.print("Producto agregado\n");
+            } else {
+                System.out.print("ya existe este producto");
+            }
 
         } catch (SQLException ex) {
             Logger.getLogger(DAOCliente.class.getName()).log(Level.SEVERE, null, ex);
