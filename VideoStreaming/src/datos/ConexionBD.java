@@ -10,8 +10,8 @@ public class ConexionBD {
     //String driverUrl = "jdbc:mysql://localhost:3306/videostreaming?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
     String user = "grupo1";
     String password = "grupo1";
-
-    public void ConexionDB() {
+    
+    public ConexionBD() {
     	System.out.println("-- entro al constructor de conexionDB");
         try {
         	System.out.println("-- ConexionDB 1");

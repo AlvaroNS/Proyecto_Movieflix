@@ -1,28 +1,22 @@
 package control;
 
 import gui.MenuPelicula;
+import modelo.Cliente;
+import modelo.Pelicula;
+import servicios.I_S_Cliente;
+import servicios.I_S_Pelicula;
+import servicios.S_Cliente;
+import servicios.S_Pelicula;
 //import modelo.Pelicula;
 import utilidades.*;
 //import servicios.S_PeliculaImpl;
 
 public class ModeloPelicula {
 	
-/*	 Pelicula p = new Pelicula();
-	 
-	 private S_PeliculaImpl services = new S_PeliculaImpl() {
+	 Pelicula p = new Pelicula();
 		
-		@Override
-		public void Baja(Pelicula p) {
-			// TODO Auto-generated method stub
-			
-		}
 		
-		@Override
-		public void Alta(Pelicula p) {
-			// TODO Auto-generated method stub
-			
-		}
-	};*/
+
 
 	    public void abrirVideoStreamingPelicula() {
 	        boolean seguir = true;
@@ -54,7 +48,7 @@ public class ModeloPelicula {
 	                case 3:
 	                	//MODIFICAR PELICULA
 	                	System.out.println("Has seleccionado: Modificar Peliculas");
-	                   // services.ListarProductos();
+	                    S_Pelicula.modificarPelicula(p);
 	                    break;
 
 	                case 4:
@@ -95,6 +89,35 @@ public class ModeloPelicula {
 	        String sino = LecturaDatos.leerString("¿Está seguro?(S/N)");
 	        return (sino.toUpperCase().charAt(0) != 'S');
 	    }
-}
+	  
+	    public void pruebaModificarPelicula() {
+	    	Pelicula p1 = new Pelicula();
+			I_S_Pelicula pr = new S_Pelicula();
+			try {
+			pr.modificarPelicula(p1);
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+	    }
+	    
+	    public void pruebaModificarCliente() {
+	    	
+	    		// TODO Auto-generated method stub
+	    		
+	    		/** modificar cliente testing/
+	    		 */
+	    		Cliente d1 = new Cliente();
+	    		I_S_Cliente s1 = new S_Cliente(); 
+	    		try {
+	    			s1.modificarCliente(d1);
+	    		} catch (Exception e) {
+	    			// TODO Auto-generated catch block
+	    			e.printStackTrace();
+	    }
+	    	}
+	    }
+	    	
+
 
 

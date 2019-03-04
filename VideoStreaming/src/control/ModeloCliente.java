@@ -3,11 +3,13 @@ package control;
 import gui.MenuCliente;
 import modelo.Cliente;
 import utilidades.*;
+import servicios.I_S_Cliente;
 import servicios.S_Cliente;
 
 public class ModeloCliente {
 	
-	 Cliente c = new Cliente();
+	 private I_S_Cliente services = new S_Cliente();
+	 private Cliente c = new Cliente();
 	 
 	    public void abrirVideoStreamingCliente() {
 	        boolean seguir = true;
@@ -27,31 +29,19 @@ public class ModeloCliente {
 	                case 1:
 	                    //ALTA DE UN CLIENTE
 	                	System.out.println("Has seleccionado: Crear Cliente");
-<<<<<<< HEAD
-<<<<<<< HEAD
-	                    services.altaCliente(c);
-=======
-	                    Impl_S_Cliente.altaCliente(c);
->>>>>>> 77d836a3fc381c392be1d3bb47aa0ee72ebae656
-=======
-	                    S_Cliente.altaCliente(c);
->>>>>>> 923402c3a81c6d4da2acbd847164a152f5249f06
+	                	services.altaCliente(c);
 	                    break;
 
 	                case 2:
 	                    //ELIMINAR UN CLIENTE
 	                	System.out.println("Has seleccionado: Dar de baja cliente");
-<<<<<<< HEAD
-	                    services.bajaCliente(c);
-=======
+	                	services.bajaCliente(c);
+	                    
+
 	                	System.out.println("Introduce el id del cliente a dar de baja");
 	                	int idC = LecturaDatos.leerInt();
-<<<<<<< HEAD
-	                    Impl_S_Cliente.bajaCliente(idC);
->>>>>>> 77d836a3fc381c392be1d3bb47aa0ee72ebae656
-=======
-	                    S_Cliente.bajaCliente(idC);
->>>>>>> 923402c3a81c6d4da2acbd847164a152f5249f06
+
+	    
 	                    break;
 
 	                case 3:

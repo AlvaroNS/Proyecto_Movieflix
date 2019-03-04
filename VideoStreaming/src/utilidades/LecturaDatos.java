@@ -52,10 +52,10 @@ public class LecturaDatos {
         //Llama al metodo de arriba
         return leerN();
     }    
-<<<<<<< HEAD
+
  
-        public static Date leerFecha() {
-=======
+     
+
     
     //Metodo estatico    
     @SuppressWarnings("resource")
@@ -68,7 +68,6 @@ public class LecturaDatos {
         //Llama al metodo de arriba
         return leerDouble();
     }
+}
         
 
->>>>>>> 77d836a3fc381c392be1d3bb47aa0ee72ebae656
-}
