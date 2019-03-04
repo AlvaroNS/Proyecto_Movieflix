@@ -1,6 +1,7 @@
 package control;
 
 import gui.MenuPelicula;
+<<<<<<< HEAD:VideoStreaming/src/control/ModeloPelicula.java
 import modelo.Cliente;
 import modelo.Pelicula;
 import servicios.I_S_Cliente;
@@ -8,15 +9,21 @@ import servicios.I_S_Pelicula;
 import servicios.S_Cliente;
 import servicios.S_Pelicula;
 //import modelo.Pelicula;
+=======
+import modelo.Pelicula;
+>>>>>>> b13a4f3815ac785c2ba7d5e77dc872c3cbcefa4e:VideoStreaming_FINAL/src/control/ModeloPelicula.java
 import utilidades.*;
-//import servicios.S_PeliculaImpl;
+import servicios.S_Pelicula;
 
 public class ModeloPelicula {
 	
 	 Pelicula p = new Pelicula();
+<<<<<<< HEAD:VideoStreaming/src/control/ModeloPelicula.java
 		
 		
 
+=======
+>>>>>>> b13a4f3815ac785c2ba7d5e77dc872c3cbcefa4e:VideoStreaming_FINAL/src/control/ModeloPelicula.java
 
 	    public void abrirVideoStreamingPelicula() {
 	        boolean seguir = true;
@@ -34,28 +41,35 @@ public class ModeloPelicula {
 	        try {
 	            switch (LecturaDatos.leerInt()) {
 	                case 1:
-	                    //ALTA DE UN PELICULA
+	                    //ALTA DE UNA PELICULA
 	                	System.out.println("Has seleccionado: Crear Pelicula");
 	                   // services.Alta(c);
 	                    break;
 
 	                case 2:
-	                    //ELIMINAR UN PELICULA
+	                    //ELIMINAR UNA PELICULA
 	                	System.out.println("Has seleccionado: Dar de baja Pelicula");
-	                   // services.Baja(c);
+	                	System.out.println("Introduce el id de la película a dar de baja");
+	                	int idP  = LecturaDatos.leerInt();
+	                	S_Pelicula.bajaPelicula(idP);
 	                    break;
 
 	                case 3:
 	                	//MODIFICAR PELICULA
+<<<<<<< HEAD:VideoStreaming/src/control/ModeloPelicula.java
 	                	System.out.println("Has seleccionado: Modificar Peliculas");
 	                    S_Pelicula.modificarPelicula(p);
 	                    break;
+=======
+	                	System.out.println("Has seleccionado: Modificar Pelicula");
+	                	break;
+>>>>>>> b13a4f3815ac785c2ba7d5e77dc872c3cbcefa4e:VideoStreaming_FINAL/src/control/ModeloPelicula.java
 
 	                case 4:
-	                    //LISTAR PELICULA
-	                	System.out.println("Has seleccionado: Listar datos de Peliculas");
-	                   // services.CantidadesProducto();
-	                    break;
+	                    //MOSTRAR PELICULA
+	                	System.out.println("Has seleccionado: Mostrar Datos de Pelicula");
+	                    S_Pelicula.mostrarPelicula(LecturaDatos.leerInt("Introduce el id de la película que quieras que se muestre"));
+	                	break;
 	                    
 	                case 5:
 	                	//LISTAR PELICULA POR CATEGORIA

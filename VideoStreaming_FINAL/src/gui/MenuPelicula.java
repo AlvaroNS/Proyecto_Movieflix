@@ -11,7 +11,7 @@ public class MenuPelicula {
         System.out.println("* 1. Crear Pelicula *");
         System.out.println("* 2. Dar de Bja Pelicula *");
         System.out.println("* 3. Modificar Pelicula *");
-        System.out.println("* 4. Listar Datos de Pelicula *");
+        System.out.println("* 4. Mostrar Datos de Pelicula *");
         System.out.println("* 5. Listar Pelicula por categoria *");
         System.out.println("* 6. Listar Pelicula mas valoradas *");
         System.out.println("* 7. Listar Peliculamas vistas *");
