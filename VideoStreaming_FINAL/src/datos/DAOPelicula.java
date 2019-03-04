@@ -1,6 +1,7 @@
 package datos;
 
 import modelo.Pelicula;
+import utilidades.LecturaDatos;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,18 +19,19 @@ public class DAOPelicula implements I_DAOPelicula {
 		// TODO Auto-generated constructor stub
 	}
 
-	/*public void altaCliente(Cliente c) {
+	public void altaPelicula(Pelicula p) {
 		Statement st = null;
 		try {
+			int valorDefecto = 0;
 			ConexionBD con = new ConexionBD();
 			con.ConexionDB();
 			st = con.getConnection().createStatement();
 			
-			c.setNombrecliente(LecturaDatos.leerString("Introduce el nombre del CLiente"));
-			c.setCiudad(LecturaDatos.leerString("Introduce la ciudad del CLiente"));
-			c.setFechaNacimiento(LocalDate.of(LecturaDatos.leerInt("año de nacimiento:"),
-					LecturaDatos.leerInt("mes de nacimiento:"), LecturaDatos.leerInt("día de nacimiento:")));
-			c.setTipoAcceso(LecturaDatos.leerString("Introduce el tipo de acceso del CLiente"));
+			p.setNombrePelicula(LecturaDatos.leerString("Introduce el nombre del CLiente"));
+			p.setAnioEstreno(LecturaDatos.leerInt("Introduce la ciudad del CLiente"));
+			p.setCategoria(LecturaDatos.leerString("año de nacimiento:"));
+			p.setVisualizacion(valorDefecto);
+			p.setVisualizacion(valorDefecto);
 			
 			String sql = "INSERT INTO cliente (nombreCliente, fechaNacimiento, ciudad, tipoAcceso) VALUES ('"
 					+ c.getNombreCliente() + "','" + c.getFechaNacimiento() + "','" + c.getCiudad() + "','"
@@ -47,7 +49,7 @@ public class DAOPelicula implements I_DAOPelicula {
 			
 			Logger.getLogger(DAOCliente.class.getName()).log(Level.SEVERE, null, ex);
 		}
-	}*/
+	}
 
 	public void bajaPelicula(int idP) {
 		Statement st = null;
@@ -98,13 +100,7 @@ public class DAOPelicula implements I_DAOPelicula {
 		} catch (SQLException ex) {
 			Logger.getLogger(DAOPelicula.class.getName()).log(Level.SEVERE, null, ex);
 		}
-
-	}
-
-	@Override
-	public void altaPelicula(Pelicula p) {
-		// TODO Auto-generated method stub
-
-	}
+	}	
+	
 
 }
