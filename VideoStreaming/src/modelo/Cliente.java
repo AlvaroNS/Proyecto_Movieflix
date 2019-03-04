@@ -12,6 +12,7 @@ public class Cliente {
 	private String ciudad;
 	private String tipoAcceso;
 	
+	p
 	public Cliente() {}
 	
 	public Cliente (int idCliente, String nombreCliente, LocalDate fechaNacimiento, String ciudad, String tipoAcceso) {

@@ -5,6 +5,7 @@ import utilidades.LecturaDatos;
 
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -85,5 +86,28 @@ public class DAOCliente implements I_DAOCliente {
             Logger.getLogger(DAOCliente.class.getName()).log(Level.SEVERE, null, ex);
 		}
 	}
+	public void modificarCliente (Cliente c ) {
+		/**crear sentencia**/
+		Statement st1 = null;
+		try {
+			
+			System.out.println("Modificación datos del cliente.");
+			int idm = LecturaDatos.leerInt("Codigo de cliente a modificar:");
+			c.setIdCliente(idm);
+			c.setCiudad(LecturaDatos.leerN("Ciudad del Cliente:"));
+			c.setNombrecliente(LecturaDatos.leerN("Nombre del Cliente:"));
+			c.setFechaNacimiento(LocalDate.of(LecturaDatos.leerInt("año de nacimiento:"), LecturaDatos.leerInt("mes de nacimiento:"), LecturaDatos.leerInt("día de nacimiento:")));
+			c.setTipoAcceso(LecturaDatos.leerN("Tipo de acceso"));
+			ConexionBD connect = new ConexionBD();
+			st1= connect.getConnection().createStatement();
+			String q = "UPDATE CLIENTE SET nombreCliente = " + c.getNombreCliente() + ",fechaNacimiento= " + c.getFechaNacimiento() + ",ciudad= " + c.getCiudad() + ",tipoAcceso= " + c.getTipoAcceso() + ",WHERE idCliente= " + c.getIdCliente();
+			System.out.println("Sentencia: " + q);
+			int i = st1.executeUpdate(q);
+			connect.getConnection().close();
+		}catch(SQLException ex) {
+			Logger.getLogger("Error con el SQL");
+		}
 
+	}
 }
+

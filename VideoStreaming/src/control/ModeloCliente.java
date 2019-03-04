@@ -3,37 +3,22 @@ package control;
 import gui.MenuCliente;
 import modelo.Cliente;
 import utilidades.*;
-import servicios.S_ClienteImpl;
+import servicios.Impl_S_Cliente;
 
 public class ModeloCliente {
 	
 	 Cliente c = new Cliente();
 	 
-	 private S_ClienteImpl services = new S_ClienteImpl() {
-		
-		@Override
-		public void Baja(Cliente c) {
-			// TODO Auto-generated method stub
-			
-		}
-		
-		@Override
-		public void Alta(Cliente c) {
-			// TODO Auto-generated method stub
-			
-		}
-	};
-
-	    public void abrirVideoStreaming() {
+	    public void abrirVideoStreamingCliente() {
 	        boolean seguir = true;
 	        do {
 	            MenuCliente.mostrarMenu();
-	            seguir = this.seleccionOpciones();
+	            seguir = this.seleccionOpcionesCliente();
 	        } while (seguir);
 	        System.out.println("   --- Fin de la sesion ---");
 	    }
 
-	    public boolean seleccionOpciones() {
+	    public boolean seleccionOpcionesCliente() {
 
 	        boolean continuar = true;
 
@@ -42,13 +27,23 @@ public class ModeloCliente {
 	                case 1:
 	                    //ALTA DE UN CLIENTE
 	                	System.out.println("Has seleccionado: Crear Cliente");
+<<<<<<< HEAD
 	                    services.altaCliente(c);
+=======
+	                    Impl_S_Cliente.altaCliente(c);
+>>>>>>> 77d836a3fc381c392be1d3bb47aa0ee72ebae656
 	                    break;
 
 	                case 2:
 	                    //ELIMINAR UN CLIENTE
 	                	System.out.println("Has seleccionado: Dar de baja cliente");
+<<<<<<< HEAD
 	                    services.bajaCliente(c);
+=======
+	                	System.out.println("Introduce el id del cliente a dar de baja");
+	                	int idC = LecturaDatos.leerInt();
+	                    Impl_S_Cliente.bajaCliente(idC);
+>>>>>>> 77d836a3fc381c392be1d3bb47aa0ee72ebae656
 	                    break;
 
 	                case 3:
@@ -74,7 +69,7 @@ public class ModeloCliente {
 	    }
 
 	    private boolean salir() throws Exception {
-	        String sino = LecturaDatos.leerString("   ¿Está seguro?(S/N)");
+	        String sino = LecturaDatos.leerString("¿Está seguro?(S/N)");
 	        return (sino.toUpperCase().charAt(0) != 'S');
 	    }
 }
