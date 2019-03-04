@@ -4,7 +4,6 @@ import modelo.Cliente;
 
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,8 +20,8 @@ public class DAOClientes implements I_DAOClientes {
             con.ConexionDB();
             st = con.getConnection().createStatement();
             String q = "INSERT INTO `cliente` VALUES ('" + c.getIdCliente() + "','" + c.getNombreCliente() + "','" + c.getFechaNacimiento() + "','" + c.getCiudad() + "','" + c.getTipoAcceso() + "')";
-            System.out.println(q);
             int i = st.executeUpdate(q);
+			System.out.println(q + i);
             con.getConnection().close();
 
         } catch (SQLException ex) {

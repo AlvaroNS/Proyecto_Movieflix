@@ -8,12 +8,12 @@ public class Cliente {
 	private int idCliente;
 	private String nombreCliente;
 	private Date fechaNacimiento;
-	private int ciudad;
+	private String ciudad;
 	private TipoAcceso tipoAcceso;
 	
 	public Cliente() {}
 	
-	public Cliente (int idCliente, String nombreCliente, Date fechaNacimiento, int ciudad, TipoAcceso tipoAcceso) {
+	public Cliente (int idCliente, String nombreCliente, Date fechaNacimiento, String ciudad, TipoAcceso tipoAcceso) {
 		this.idCliente = idCliente;
 		this.nombreCliente = nombreCliente;
 		this.fechaNacimiento = fechaNacimiento;
@@ -45,11 +45,11 @@ public class Cliente {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public int getCiudad() {
+	public String getCiudad() {
 		return ciudad;
 	}
 
-	public void setCiudad(int ciudad) {
+	public void setCiudad(String ciudad) {
 		this.ciudad = ciudad;
 	}
 
