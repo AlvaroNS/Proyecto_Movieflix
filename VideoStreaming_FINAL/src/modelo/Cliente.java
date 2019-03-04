@@ -1,19 +1,19 @@
 package modelo;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Cliente {
 	
 	private int idCliente;
 	private String nombreCliente;
-	private Date fechaNacimiento;
+	private LocalDate fechaNacimiento;
 	private String ciudad;
-	private TipoAcceso tipoAcceso;
+	private String tipoAcceso;
 	
 	public Cliente() {}
 	
-	public Cliente (int idCliente, String nombreCliente, Date fechaNacimiento, String ciudad, TipoAcceso tipoAcceso) {
+	public Cliente (int idCliente, String nombreCliente, LocalDate fechaNacimiento, String ciudad, String tipoAcceso) {
 		this.idCliente = idCliente;
 		this.nombreCliente = nombreCliente;
 		this.fechaNacimiento = fechaNacimiento;
@@ -37,13 +37,22 @@ public class Cliente {
 		this.nombreCliente = nombreCliente;
 	}
 
-	public Date getFechaNacimiento() {
-		return fechaNacimiento;
-	}
+	/*public LocalDate fecha_nacimiento() {
+        System.out.println("Introduzca Fecha de nacimiento: ");
+        int dia = LecturaDatos.leerInt("Introduzca dia: ");
+        int mes = LecturaDatos.leerInt("Introduzca mes: ");
+        int year = LecturaDatos.leerInt("Introduzca año: ");
 
-	public void setFechaNacimiento(Date fechaNacimiento) {
-		this.fechaNacimiento = fechaNacimiento;
-	}
+        return new LocalDate(new GregorianCalendar(year, mes - 1, dia).getTimeInMillis());
+    }*/
+
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
 
 	public String getCiudad() {
 		return ciudad;
@@ -53,11 +62,11 @@ public class Cliente {
 		this.ciudad = ciudad;
 	}
 
-	public TipoAcceso getTipoAcceso() {
+	public String getTipoAcceso() {
 		return tipoAcceso;
 	}
 
-	public void setTipoAcceso(TipoAcceso tipoAcceso) {
+	public void setTipoAcceso(String tipoAcceso) {
 		this.tipoAcceso = tipoAcceso;
 	}
 

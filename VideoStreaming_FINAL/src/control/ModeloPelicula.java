@@ -1,28 +1,13 @@
 package control;
 
 import gui.MenuPelicula;
-//import modelo.Pelicula;
+import modelo.Pelicula;
 import utilidades.*;
-//import servicios.S_PeliculaImpl;
+import servicios.S_Pelicula;
 
 public class ModeloPelicula {
 	
-/*	 Pelicula p = new Pelicula();
-	 
-	 private S_PeliculaImpl services = new S_PeliculaImpl() {
-		
-		@Override
-		public void Baja(Pelicula p) {
-			// TODO Auto-generated method stub
-			
-		}
-		
-		@Override
-		public void Alta(Pelicula p) {
-			// TODO Auto-generated method stub
-			
-		}
-	};*/
+	 Pelicula p = new Pelicula();
 
 	    public void abrirVideoStreamingPelicula() {
 	        boolean seguir = true;
@@ -40,28 +25,29 @@ public class ModeloPelicula {
 	        try {
 	            switch (LecturaDatos.leerInt()) {
 	                case 1:
-	                    //ALTA DE UN PELICULA
+	                    //ALTA DE UNA PELICULA
 	                	System.out.println("Has seleccionado: Crear Pelicula");
 	                   // services.Alta(c);
 	                    break;
 
 	                case 2:
-	                    //ELIMINAR UN PELICULA
+	                    //ELIMINAR UNA PELICULA
 	                	System.out.println("Has seleccionado: Dar de baja Pelicula");
-	                   // services.Baja(c);
+	                	System.out.println("Introduce el id de la película a dar de baja");
+	                	int idP  = LecturaDatos.leerInt();
+	                	S_Pelicula.bajaPelicula(idP);
 	                    break;
 
 	                case 3:
 	                	//MODIFICAR PELICULA
-	                	System.out.println("Has seleccionado: Modificar Peliculas");
-	                   // services.ListarProductos();
-	                    break;
+	                	System.out.println("Has seleccionado: Modificar Pelicula");
+	                	break;
 
 	                case 4:
-	                    //LISTAR PELICULA
-	                	System.out.println("Has seleccionado: Listar datos de Peliculas");
-	                   // services.CantidadesProducto();
-	                    break;
+	                    //MOSTRAR PELICULA
+	                	System.out.println("Has seleccionado: Mostrar Datos de Pelicula");
+	                    S_Pelicula.mostrarPelicula(LecturaDatos.leerInt("Introduce el id de la película que quieras que se muestre"));
+	                	break;
 	                    
 	                case 5:
 	                	//LISTAR PELICULA POR CATEGORIA
