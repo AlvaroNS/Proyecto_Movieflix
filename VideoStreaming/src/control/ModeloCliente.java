@@ -3,7 +3,7 @@ package control;
 import gui.MenuCliente;
 import modelo.Cliente;
 import utilidades.*;
-import servicios.Impl_S_Cliente;
+import servicios.S_Cliente;
 
 public class ModeloCliente {
 	
@@ -27,7 +27,7 @@ public class ModeloCliente {
 	                case 1:
 	                    //ALTA DE UN CLIENTE
 	                	System.out.println("Has seleccionado: Crear Cliente");
-	                    Impl_S_Cliente.altaCliente(c);
+	                    S_Cliente.altaCliente(c);
 	                    break;
 
 	                case 2:
@@ -35,7 +35,7 @@ public class ModeloCliente {
 	                	System.out.println("Has seleccionado: Dar de baja cliente");
 	                	System.out.println("Introduce el id del cliente a dar de baja");
 	                	int idC = LecturaDatos.leerInt();
-	                    Impl_S_Cliente.bajaCliente(idC);
+	                    S_Cliente.bajaCliente(idC);
 	                    break;
 
 	                case 3:

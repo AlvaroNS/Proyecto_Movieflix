@@ -4,8 +4,8 @@ import datos.DAOCliente;
 import modelo.Cliente;
 
 
-public interface Impl_S_Cliente {
-	
+public interface I_S_Cliente {
+
 	DAOCliente dc = new DAOCliente();
 	
 	static void altaCliente(Cliente c) {
@@ -15,6 +15,4 @@ public interface Impl_S_Cliente {
 		dc.bajaCliente(id);
 	}
 
-
-	
 }
