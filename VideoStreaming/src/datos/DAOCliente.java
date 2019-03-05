@@ -2,135 +2,162 @@ package datos;
 
 import modelo.Cliente;
 import utilidades.LecturaDatos;
-
-import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.apache.logging.log4j.LogManager;
 
 
-/**
- * 
- * @author Equipo1
- * fecha: 04/03/2018
- * versión: 1
- * 
- */
+/** Capa DAO de Cliente que implementa el Interfaz DAO de Cliente*/
 public class DAOCliente implements I_DAOCliente {
 	
 	static Scanner sc = new Scanner(System.in);
-	 private static final org.apache.logging.log4j.Logger logger = LogManager.getLogger("Mensaje");
 	
 	public DAOCliente() {
 		super();
-		// TODO Auto-generated constructor stub
-		
+	}
+	
+	
+	/**Método para dar de alta a un cliente */
+	public void altaCliente(Cliente c) {
+		Statement st = null;
+		try {
+			/** Conexión con la base de datos  */
+			ConexionBD con = new ConexionBD();
+			con.ConexionDB();
+			st = con.getConnection().createStatement();
+			
+			/** Se piden datos a usuario para rellenar la tabla "Cliente" de la base de datos */
+			c.setNombreCliente(LecturaDatos.leerString("Introduce el nombre del CLiente"));
+			c.setCiudad(LecturaDatos.leerString("Introduce la ciudad del CLiente"));
+			c.setFechaNacimiento(LocalDate.of(LecturaDatos.leerInt("año de nacimiento:"),
+					LecturaDatos.leerInt("mes de nacimiento:"), LecturaDatos.leerInt("día de nacimiento:")));
+			c.setTipoAcceso(LecturaDatos.leerString("Introduce el tipo de acceso del CLiente"));
+			
+			/**	Sentencia SQL para insertar los datos en la BD */
+			String sql = "INSERT INTO cliente (nombreCliente, fechaNacimiento, ciudad, tipoAcceso) VALUES ('"
+					+ c.getNombreCliente() + "','" + c.getFechaNacimiento() + "','" + c.getCiudad() + "','"
+					+ c.getTipoAcceso() + "')";
+			
+			System.out.println("" + sql);
+			
+			st.executeUpdate(sql);
+			
+		/** Catch que captura los posibles errores */
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+			System.out.println("---" + ex.getSQLState());
+			System.out.println("---" + ex.getErrorCode());
+			System.out.println("---" + ex.getMessage());
+			
+			Logger.getLogger(DAOCliente.class.getName()).log(Level.SEVERE, null, ex);
+		}
 	}
 
 	
-	 public void altaCliente (Cliente c) {
-        Statement st = null;
-        
-     /*   System.out.print("\n Ingrese un código del cliente: \n");
-        int  codigo = LecturaDatos.leerInt();
-        System.out.print("Nombre: ");
-        String nombre = LecturaDatos.leerString();
-        System.out.print("Precio: ");
-        precio = LecturaDatos.
-        System.out.print("Stock: ");
-        stock = entrada.nextInt();
-        p = busqueda(codigo, productos);
-
-        if (p == null) {
-            productos.addElement(new Producto(codigo, nombre, precio, stock));
-
-            **String sql = "INSERT INTO productos (ID, Nombre, Precio, Stock) VALUES(?,?,?,?)";
-
-            PreparedStatement pst;
-            pst = cn.prepareStatement(sql);
-            pst.setInt(1, codigo);
-            pst.setString(2, nombre);
-            pst.setDouble(3, precio);
-            pst.setInt(4, stock);
-            pst.execute(sql);**
-
-            System.out.print("Producto agregado\n");
-        } else {
-            System.out.print("ya existe este producto");
-        }
-        */
-        try {
-            Connection con = new ConexionBD().getConnection();
-            st=con.createStatement();
-            String q = "INSERT INTO cliente"
-            		+ "(" + c.getIdCliente() + "," + c.getNombreCliente() + "," + c.getFechaNacimiento() + "," + c.getCiudad() + "," + c.getTipoAcceso() + ")"
-            				+ " VALUES (?,?,?,?,?)";
-            int i = st.executeUpdate(q);
-			System.out.println(q + i);
-            con.close();
-
-        } catch (SQLException ex) {
-            Logger.getLogger(DAOCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-	 
+	/** Método para dar de baja a un cliente */
 	public void bajaCliente (int id) {
 		Statement st = null;
 		try {
+			/** Se pide un id de cliente al usuaro */
 			System.out.println("Código a dar de baja: " + id);
-			Connection con = new ConexionBD().getConnection();
-			st = con.createStatement ();
+			
+			/** Conexión con la base de datos */
+			ConexionBD con = new ConexionBD();
+			con.ConexionDB();
+			st = con.getConnection ().createStatement ();
+			
+			/** Sentencia SQL para borrar el cliente de la base de datos */
 			String s = "delete from cliente where idCliente =" + id;
 			
 			int i = st.executeUpdate(s);
 			System.out.println(s + i);
-			con.close();
+			
+			/** Terminar la conexión */
+			con.getConnection ().close();
 			
 		}
 		
+		/** Catch que captura los posibles errores */
 		catch (Exception ex) {
             Logger.getLogger(DAOCliente.class.getName()).log(Level.SEVERE, null, ex);
 		}
 	}
 	
-	/** Modificar cliente existente en Base de datos**/
-	public void modificarCliente (Cliente c ) {
-		/**crear sentencia**/
+	
+	/**	Método para modificar un cliente a partir de un id de cliente */
+	public void modificarCliente (Cliente c) {
+		/**crear sentencia */
 		Statement st1 = null;
 		Logger.getLogger("Creando variable sentencia");
 		
-		/** presentación del metodo**/
 		try {
 			
 			System.out.println("Modificación datos del cliente.");
-			/** codigo del cliente que se desea modificar**/
+			
+			/** Código del cliente que se desea modificar */
 			int idm = LecturaDatos.leerInt("Codigo de cliente a modificar:");
-			/** pido los datos nuevos del cliente existrente**/
+			
+			/** Pedir los datos nuevos del cliente existrente */
 			c.setIdCliente(idm);
 			c.setCiudad(LecturaDatos.leerN("Ciudad del Cliente:"));
-			c.setNombrecliente(LecturaDatos.leerN("Nombre del Cliente:"));
+			c.setNombreCliente(LecturaDatos.leerN("Nombre del Cliente:"));
 			c.setFechaNacimiento(LocalDate.of(LecturaDatos.leerInt("año de nacimiento:"), LecturaDatos.leerInt("mes de nacimiento:"), LecturaDatos.leerInt("día de nacimiento:")));
 			c.setTipoAcceso(LecturaDatos.leerN("Tipo de acceso"));
-			/** conectando a base de datos**/
-			Connection connect = new ConexionBD().getConnection();
-			/** detallando sentencia**/
-			st1= connect.createStatement();
-			/** creo concatenado de sentencias SQL y variables**/
+			
+			/** Conexión a base de datos */
+			ConexionBD con = new ConexionBD();
+			con.ConexionDB();
+			st1 = con.getConnection ().createStatement ();
+			
+			/** Concatenado de sentencias SQL y variables */
 			String q = "UPDATE CLIENTE SET nombreCliente = '" + c.getNombreCliente() + "',fechaNacimiento= '" + c.getFechaNacimiento() + "',ciudad= '" + c.getCiudad() + "',tipoAcceso= '" + c.getTipoAcceso() + "' WHERE idCliente= " + c.getIdCliente();
-			/** muestro sentencia**/
 			System.out.println("Sentencia: " + q);
-			/** ejecuto sentencia**/
-			int i = st1.executeUpdate(q);
-			/** cierro conexión**/
-			connect.close();
+			st1.executeUpdate(q);
+			
+			/** Cierre de conexión */
+			con.getConnection ().close();
+			
+		/** Catch que captura los posibles errores */
 		}catch(SQLException ex) {
 			Logger.getLogger("Error con el SQL");
 		}
 
 	}
-}
+	
+	
+	/** Método que muestra los datos de un cliente introduciendo su id*/
+	public void mostrarCliente(int idC) {
+		Statement st = null;
+		ResultSet rs = null;
+		try {
+			
+			/** Conexión con base de datos */
+			ConexionBD con = new ConexionBD();
+			con.ConexionDB();
+			st = con.getConnection().createStatement();
+			
+			/** Sentencia SQL que permite seleccionar un cliente de la base de datos cliente */
+			rs = st.executeQuery("SELECT * FROM cliente where idCliente =" + idC);
 
+			while (rs.next()) {
+		
+				/** Concatenado para sacar por pantalla los datos del cliente */
+				System.out.println("Código cliente: " + rs.getInt("idCliente") + ", nombre cliente: " + rs.getString("nombreCliente") 
+					+ " , ciudad: " + rs.getString("ciudad") + " , tipo de acceso: " + rs.getString("tipoAcceso"));
+			}
+			
+			/** Cierre de conexión */
+			con.getConnection().close();
+
+		/** Catch que captura los posibles errores */
+		} catch (SQLException ex) {
+			Logger.getLogger(DAOPelicula.class.getName()).log(Level.SEVERE, null, ex);
+		}
+
+	}
+
+}
